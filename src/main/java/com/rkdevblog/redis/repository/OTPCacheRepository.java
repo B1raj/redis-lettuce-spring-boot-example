@@ -16,15 +16,15 @@ import java.util.concurrent.TimeUnit;
 @Repository
 public class OTPCacheRepository implements CacheRepository {
 
-    private long ttl;
-    private StringRedisTemplate redisTemplate;
-    private ValueOperations<String, String> valueOps;
+    private final long ttl;
+    private final StringRedisTemplate redisTemplate;
+    private final ValueOperations<String, String> valueOps;
 
     @Autowired
     public OTPCacheRepository(StringRedisTemplate redisTemplate,
                               @Value("${spring.redis.timeToLive}") long ttl) {
         this.redisTemplate = redisTemplate;
-        valueOps = redisTemplate.opsForValue();
+        this.valueOps = redisTemplate.opsForValue();
         this.ttl = ttl;
     }
 

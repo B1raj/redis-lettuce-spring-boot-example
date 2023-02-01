@@ -4,9 +4,9 @@ import com.rkdevblog.redis.dto.OtpRequest;
 import com.rkdevblog.redis.dto.OtpValidateRequest;
 import com.rkdevblog.redis.repository.CacheRepository;
 import com.rkdevblog.redis.util.OtpGenerator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.Optional;
 
@@ -17,7 +17,7 @@ public class Controller {
     private final CacheRepository cacheRepository;
     private final OtpGenerator otpGenerator;
 
-    @Autowired
+
     public Controller(CacheRepository cacheRepository, OtpGenerator otpGenerator) {
         this.cacheRepository = cacheRepository;
         this.otpGenerator = otpGenerator;
